@@ -1,0 +1,34 @@
+create a folder and 2 files -> app.js and index.html
+
+go to the terminal in the new folder and type 'npm init'
+
+still on terminal, type 'npm install express body-parser request'
+
+on app.js:
+	const request = require("request")
+	const express=require("express")
+	const bodyParser=require("body-parser")
+
+	const app = express()
+
+	app.use(express.static("public"))
+	app.use(bodyParser.urlencoded({extended:true}))
+	app.get("/", function(req,res){
+	    res.sendFile(__dirname+"/signup.html")
+	})
+
+	app.listen(3000, function(){
+	    console.log("Server is running on port 3k")
+	})
+
+search a bootstrap exemple and paste on index.html
+
+search for the bootstrap cdn and paste on index.html
+
+create a folder named public and inside it, create 2 more folders, css and images. Those will receive our static files
+
+check if the template has a custom style sheet
+	yes-> find the href file and copy it, create a file named styles.css and paste the custom css there and then replace the href with your new css file (css/styles.css)
+	no->proceed
+
+when we build a post, we need to specify on html a function with the method post and an action
